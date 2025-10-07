@@ -1,22 +1,36 @@
-//we created only one element
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const heading=React.createElement
-("h1",{id:"heading"},"Hello World!");
+// ✅ React element
+//React.createElement => ReactElement-JS Object =>HTML(render)
+const heading = React.createElement("h1", {}, "Namaste React!");
 console.log(heading);
-        const root=ReactDOM.createRoot(document.getElementById("root"));
-        root.render(heading);
 
-{/* <div id="parent">
-    <div id="child">
-        <h1>i'm h1 tag</h1>
+// ✅ JSX version
+//JSX=> babel transpiles in to (React.createElement=>ReactElement-JS Object =>HTML(render))
+
+
+//React Functional Component
+const Title =()=>(<h1 id="heading">Namaste React using JSX 🚀</h1>)
+
+//with normal function(without arrow function)
+const Para=function(){
+   return (
+   <h2>hello</h2>
+)
+};
+
+//Component composition
+const HeadingComponent1=()=> (
+    <div id="container">
+        {/* {Title()}
+        <Title/>
+        <Title></Title> */}
+        <Para/>
+        <h1 className="heading">Namaste React functional component</h1>
     </div>
-</div> */}
+);
 
-const container=React.createElement("div",{id:"parent"},
-    [React.createElement("div",{id:"child"},
-        [React.createElement("h1",{},"I'm an h1 tag" ),React.createElement("h2",{},"I'm an h2 tag" )])],
-    [React.createElement("div",{id:"child1"},
-        [React.createElement("h1",{},"I'm an h1 tag" ),React.createElement("h2",{},"I'm an h2 tag" )])]);
-
-const root1=ReactDOM.createRoot(document.getElementById("root"));
-root1.render(container);
+// ✅ Create root & render it
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<HeadingComponent1/>);
